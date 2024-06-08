@@ -15,37 +15,37 @@ label = "AE2 Stockkeeper"
 --    be exported to. Usually something like "meBridge_0", "meBridge_1", etc.
 exportItems = {
     -- Crushing
-    [1001] = {"Sulfur", "thermal:sulfur", 50000, "west", 32, "meBridge_0"},
-    [1002] = {"Iron Ingot", "minecraft:iron_ingot", 50000, "west", 32, "meBridge_0"},
-    [1003] = {"Copper Ingot", "minecraft:copper_ingot", 50000, "west", 32, "meBridge_0"},
-    [1004] = {"Lead Ingot", "thermal:lead_ingot", 50000, "west", 32, "meBridge_0"},
-    [1005] = {"Tin Ingot", "thermal:tin_ingot", 50000, "west", 32, "meBridge_0"},
-    [1006] = {"Diamond", "minecraft:diamond", 5000, "west", 32, "meBridge_0"},
+    {"Sulfur", "thermal:sulfur", 50000, "west", 32, "meBridge_0"},
+    {"Iron Ingot", "minecraft:iron_ingot", 50000, "west", 32, "meBridge_0"},
+    {"Copper Ingot", "minecraft:copper_ingot", 50000, "west", 32, "meBridge_0"},
+    {"Lead Ingot", "thermal:lead_ingot", 50000, "west", 32, "meBridge_0"},
+    {"Tin Ingot", "thermal:tin_ingot", 50000, "west", 32, "meBridge_0"},
+    {"Diamond", "minecraft:diamond", 5000, "west", 32, "meBridge_0"},
 
     -- Smelting
-    [2001] = {"Raw Iron", "minecraft:raw_iron", 2500, "down", 64, "meBridge_0"},
-    [2002] = {"Raw Copper", "minecraft:raw_copper", 2500, "down", 64, "meBridge_0"},
-    [2003] = {"Raw Lead", "thermal:raw_lead", 2500, "down", 64, "meBridge_0"},
-    [2004] = {"Raw Tin", "thermal:raw_tin", 2500, "down", 64, "meBridge_0"},
-    [2005] = {"Raw Silver", "thermal:raw_silver", 2500, "down", 64, "meBridge_0"},
-    [2006] = {"Raw Gold", "minecraft:raw_gold", 2500, "down", 64, "meBridge_0"},
-    [2007] = {"Raw Uranium", "mekanism:raw_uranium", 2500, "down", 64, "meBridge_0"},
-    [2008] = {"Raw Iesnium", "occultism:raw_iesnium", 2500, "down", 64, "meBridge_0"},
-    [2009] = {"Raw Zinc", "create:raw_zinc", 2500, "down", 64, "meBridge_0"},
-    [2010] = {"Raw Nickel", "thermal:raw_nickel", 2500, "down", 64, "meBridge_0"},
+    {"Raw Iron", "minecraft:raw_iron", 2500, "down", 64, "meBridge_0"},
+    {"Raw Copper", "minecraft:raw_copper", 2500, "down", 64, "meBridge_0"},
+    {"Raw Lead", "thermal:raw_lead", 2500, "down", 64, "meBridge_0"},
+    {"Raw Tin", "thermal:raw_tin", 2500, "down", 64, "meBridge_0"},
+    {"Raw Silver", "thermal:raw_silver", 2500, "down", 64, "meBridge_0"},
+    {"Raw Gold", "minecraft:raw_gold", 2500, "down", 64, "meBridge_0"},
+    {"Raw Uranium", "mekanism:raw_uranium", 2500, "down", 64, "meBridge_0"},
+    {"Raw Iesnium", "occultism:raw_iesnium", 2500, "down", 64, "meBridge_0"},
+    {"Raw Zinc", "create:raw_zinc", 2500, "down", 64, "meBridge_0"},
+    {"Raw Nickel", "thermal:raw_nickel", 2500, "down", 64, "meBridge_0"},
     
     -- Coal Enriching
-    [3001] = {"Iron Ingot", "minecraft:iron_ingot", 2500, "east", 32, "meBridge_0"},
+    {"Iron Ingot", "minecraft:iron_ingot", 2500, "east", 32, "meBridge_0"},
     
     -- Redstone Enriching
-    [4001] = {"Iron Ingot", "minecraft:iron_ingot", 2500, "west", 32, "meBridge_4"},
+    {"Iron Ingot", "minecraft:iron_ingot", 2500, "west", 32, "meBridge_4"},
 
     -- Diamond Enriching
-    [5001] = {"Infused Alloy", "mekanism:alloy_infused", 2500, "down", 32, "meBridge_4"},
-    [5002] = {"Obsidian Dust", "mekanism:dust_obsidian", 2500, "down", 32, "meBridge_4"},
+    {"Infused Alloy", "mekanism:alloy_infused", 2500, "down", 32, "meBridge_4"},
+    {"Obsidian Dust", "mekanism:dust_obsidian", 2500, "down", 32, "meBridge_4"},
 
     -- Obsidian Enriching
-    [6001] = {"Reinforced Alloy", "mekanism:alloy_reinforced", 2500, "east", 32, "meBridge_4"},
+    {"Reinforced Alloy", "mekanism:alloy_reinforced", 2500, "east", 32, "meBridge_4"},
 }
 
 function listItems()
