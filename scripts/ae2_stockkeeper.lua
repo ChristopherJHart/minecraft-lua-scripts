@@ -34,17 +34,17 @@ exportItems = {
     {"Raw Zinc", "create:raw_zinc", 2500, "down", 64, "meBridge_0"},
     {"Raw Nickel", "thermal:raw_nickel", 2500, "down", 64, "meBridge_0"},
     
-    -- Coal Enriching
+    -- Coal Infusing
     {"Iron Ingot", "minecraft:iron_ingot", 2500, "east", 32, "meBridge_0"},
     
-    -- Redstone Enriching
+    -- Redstone Infusing
     {"Iron Ingot", "minecraft:iron_ingot", 2500, "west", 32, "meBridge_4"},
 
-    -- Diamond Enriching
+    -- Diamond Infusing
     {"Infused Alloy", "mekanism:alloy_infused", 2500, "down", 32, "meBridge_4"},
     {"Obsidian Dust", "mekanism:dust_obsidian", 2500, "down", 32, "meBridge_4"},
 
-    -- Obsidian Enriching
+    -- Obsidian Infusing
     {"Reinforced Alloy", "mekanism:alloy_reinforced", 2500, "east", 32, "meBridge_4"},
 }
 
