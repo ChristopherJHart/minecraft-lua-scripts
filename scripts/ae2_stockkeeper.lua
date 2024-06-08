@@ -151,23 +151,6 @@ function listItems()
             end
             -- If the item's quantity in the network is above the threshold, export it.
             if size > threshold then
-                -- Get user-facing symbol to indicate what direction the item is being exported
-                if exportDirection == "down" then
-                    directionSymbol = "D"
-                elseif exportDirection == "up" then
-                    directionSymbol = "U"
-                elseif exportDirection == "west" then
-                    directionSymbol = "L"
-                elseif exportDirection == "right" then
-                    directionSymbol = "R"
-                elseif exportDirection == "front" then
-                    directionSymbol = "F"
-                elseif exportDirection == "back" then
-                    directionSymbol = "B"
-                else
-                    directionSymbol = "?"
-                end
-
                 -- Try to export the item
                 item_to_export = {name=name, count=exportQuantity}
                 exported, exportError = meBridge.exportItem(item_to_export, exportDirection)
@@ -178,10 +161,10 @@ function listItems()
                 if exportError then
                     -- Add flag to monitor output indicating we attempted to export the item, but failed
                     print("Error exporting " .. userFacingName .. " out of ME Bridge " .. meBridgeName .. "in direction " .. exportDirection .. ": " .. exportError)
-                    centerText("(" .. meBridgeName .. " export " .. directionSymbol .. ") [" .. size .. "/" .. threshold .. "] !F2E!", row, colors.black, colors.red, "right", true)
+                    centerText("(" .. meBridgeName .. " export " .. exportDirection .. ") [" .. size .. "/" .. threshold .. "] !F2E!", row, colors.black, colors.red, "right", true)
                 else
                     -- Indicate on monitor that the item is being exported.
-                    centerText("(" .. meBridgeName .. " export " .. directionSymbol .. ") [" .. size .. "/" .. threshold .. "]", row, colors.black, colors.yellow, "right", true)
+                    centerText("(" .. meBridgeName .. " export " .. exportDirection .. ") [" .. size .. "/" .. threshold .. "]", row, colors.black, colors.yellow, "right", true)
                     -- Also print to console that the item has been exported.
                     print("Successfully exported " .. exported .. " of " .. userFacingName .. " out of ME Bridge " .. meBridgeName .. " in direction " .. exportDirection .. ".")
                 end
