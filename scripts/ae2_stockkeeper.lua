@@ -171,6 +171,9 @@ function listItems()
                 -- Try to export the item
                 item_to_export = {name=name, count=exportQuantity}
                 exported, exportError = me.exportItem(item_to_export, exportDirection)
+                if not exported then
+                    exported = 0
+                end
 
                 if exportError then
                     -- Add flag to monitor output indicating we attempted to export the item, but failed
