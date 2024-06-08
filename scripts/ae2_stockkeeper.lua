@@ -170,7 +170,7 @@ function listItems()
 
                 -- Try to export the item
                 item_to_export = {name=name, count=exportQuantity}
-                exported, exportError = me.exportItem(item_to_export, exportDirection)
+                exported, exportError = meBridge.exportItem(item_to_export, exportDirection)
                 if not exported then
                     exported = 0
                 end
