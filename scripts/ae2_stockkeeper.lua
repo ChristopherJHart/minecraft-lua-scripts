@@ -37,13 +37,13 @@ exportItems = {
     [16] = {"Iron Ingot", "minecraft:iron_ingot", 2500, "east", 32, "meBridge_0"},
     
     -- Redstone Enriching
-    [17] = {"Iron Ingot", "minecraft:iron_ingot", 2500, "west", 32, "meBridge_1"},
+    [17] = {"Iron Ingot", "minecraft:iron_ingot", 2500, "west", 32, "meBridge_4"},
 
     -- Diamond Enriching
-    [18] = {"Infused Alloy", "mekanism:alloy_infused", 2500, "down", 32, "meBridge_1"},
+    [18] = {"Infused Alloy", "mekanism:alloy_infused", 2500, "down", 32, "meBridge_4"},
 
     -- Obsidian Enriching
-    [19] = {"Infused Alloy", "mekanism:alloy_reinforced", 2500, "east", 32, "meBridge_1"},
+    [19] = {"Infused Alloy", "mekanism:alloy_reinforced", 2500, "east", 32, "meBridge_4"},
     -- [20] = {},
     -- [21] = {},
     -- [22] = {},
