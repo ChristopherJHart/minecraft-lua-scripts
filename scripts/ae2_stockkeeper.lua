@@ -22,16 +22,16 @@ exportItems = {
     [5] = {"Tin Ingot", "thermal:tin_ingot", 50000, "west", 32, "meBridge_0"},
 
     -- Smelting
-    [6] = {"Raw Iron", "minecraft:raw_iron", 2500, "down", 32, "meBridge_0"},
-    [7] = {"Raw Copper", "minecraft:raw_copper", 2500, "down", 32, "meBridge_0"},
-    [8] = {"Raw Lead", "thermal:raw_lead", 2500, "down", 32, "meBridge_0"},
-    [9] = {"Raw Tin", "thermal:raw_tin", 2500, "down", 32, "meBridge_0"},
-    [10] = {"Raw Silver", "thermal:raw_silver", 2500, "down", 32, "meBridge_0"},
-    [11] = {"Raw Gold", "minecraft:raw_gold", 2500, "down", 32, "meBridge_0"},
-    [12] = {"Raw Uranium", "mekanism:raw_uranium", 2500, "down", 32, "meBridge_0"},
-    [13] = {"Raw Iesnium", "occultism:raw_iesnium", 2500, "down", 32, "meBridge_0"},
-    [14] = {"Raw Zinc", "create:raw_zinc", 2500, "down", 32, "meBridge_0"},
-    [15] = {"Raw Nickel", "thermal:raw_nickel", 2500, "down", 32, "meBridge_0"},
+    [6] = {"Raw Iron", "minecraft:raw_iron", 2500, "down", 64, "meBridge_0"},
+    [7] = {"Raw Copper", "minecraft:raw_copper", 2500, "down", 64, "meBridge_0"},
+    [8] = {"Raw Lead", "thermal:raw_lead", 2500, "down", 64, "meBridge_0"},
+    [9] = {"Raw Tin", "thermal:raw_tin", 2500, "down", 64, "meBridge_0"},
+    [10] = {"Raw Silver", "thermal:raw_silver", 2500, "down", 64, "meBridge_0"},
+    [11] = {"Raw Gold", "minecraft:raw_gold", 2500, "down", 64, "meBridge_0"},
+    [12] = {"Raw Uranium", "mekanism:raw_uranium", 2500, "down", 64, "meBridge_0"},
+    [13] = {"Raw Iesnium", "occultism:raw_iesnium", 2500, "down", 64, "meBridge_0"},
+    [14] = {"Raw Zinc", "create:raw_zinc", 2500, "down", 64, "meBridge_0"},
+    [15] = {"Raw Nickel", "thermal:raw_nickel", 2500, "down", 64, "meBridge_0"},
     
     -- Coal Enriching
     [16] = {"Iron Ingot", "minecraft:iron_ingot", 2500, "east", 32, "meBridge_0"},
@@ -263,7 +263,7 @@ end
 
 while true do
     listItems()
-    sleep(3)
+    sleep(1)
 end
 
 print("Finished AE2 stockkeeper.")
