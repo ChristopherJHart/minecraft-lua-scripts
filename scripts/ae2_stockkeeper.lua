@@ -140,7 +140,7 @@ function listItems()
         centerText(userFacingName, row, colors.black, colors.white, "west", false)
 
         -- Get the item's information from the AE2 network
-        meItemInfo = me.getItem({name = name})
+        meItemInfo = meBridge.getItem({name = name})
 
         -- If the item is found in the network, fetch how many are available
         if meItemInfo then
