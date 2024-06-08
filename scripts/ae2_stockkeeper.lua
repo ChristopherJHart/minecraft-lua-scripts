@@ -35,17 +35,17 @@ exportItems = {
     {"Raw Nickel", "thermal:raw_nickel", 2500, "down", 64, "meBridge_0"},
     
     -- Coal Infusing
-    {"Iron Ingot", "minecraft:iron_ingot", 2500, "east", 32, "meBridge_0"},
+    {"Iron Ingot", "minecraft:iron_ingot", 2500, "east", 128, "meBridge_0"},
     
     -- Redstone Infusing
-    {"Iron Ingot", "minecraft:iron_ingot", 2500, "west", 32, "meBridge_4"},
+    {"Iron Ingot", "minecraft:iron_ingot", 2500, "west", 128, "meBridge_4"},
 
     -- Diamond Infusing
-    {"Infused Alloy", "mekanism:alloy_infused", 2500, "down", 32, "meBridge_4"},
-    {"Obsidian Dust", "mekanism:dust_obsidian", 2500, "down", 32, "meBridge_4"},
+    {"Infused Alloy", "mekanism:alloy_infused", 2500, "down", 128, "meBridge_4"},
+    {"Obsidian Dust", "mekanism:dust_obsidian", 2500, "down", 128, "meBridge_4"},
 
     -- Obsidian Infusing
-    {"Reinforced Alloy", "mekanism:alloy_reinforced", 2500, "east", 32, "meBridge_4"},
+    {"Reinforced Alloy", "mekanism:alloy_reinforced", 2500, "east", 128, "meBridge_4"},
 }
 
 function listItems()
