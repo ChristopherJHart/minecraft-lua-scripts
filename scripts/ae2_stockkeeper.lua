@@ -29,7 +29,7 @@ exportItems = {
     [12] = {"Raw Uranium", "mekanism:raw_uranium", 2500, "down", 32},
     [13] = {"Raw Iesnium", "occultism:raw_iesnium", 2500, "down", 32},
     [14] = {"Raw Zinc", "create:raw_zinc", 2500, "down", 32},
-    [15] = {"Raw Nickel": "thermal:raw_nickel", 2500, "down", 32}
+    [15] = {"Raw Nickel", "thermal:raw_nickel", 2500, "down", 32}
     
     -- Enriching
     -- [16] = {},
