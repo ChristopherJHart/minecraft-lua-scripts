@@ -11,31 +11,39 @@ label = "AE2 Stockkeeper"
 -- 3. The threshold quantity of the item in the AE2 network before it should be exported
 -- 4. The direction in which the item should be exported
 -- 5. The amount of an item to export at a time when the threshold is exceeded.
+-- 6. The name of the ME Bridge peripheral on the computer network that the item should
+--    be exported to. Usually something like "meBridge_0", "meBridge_1", etc.
 exportItems = {
     -- Crushing
-    [1] = {"Sulfur", "thermal:sulfur", 50000, "west", 32},
-    [2] = {"Iron Ingot", "minecraft:iron_ingot", 50000, "west", 32},
-    [3] = {"Copper Ingot", "minecraft:copper_ingot", 50000, "west", 32},
-    [4] = {"Lead Ingot", "thermal:lead_ingot", 50000, "west", 32},
-    [5] = {"Tin Ingot", "thermal:tin_ingot", 50000, "west", 32},
+    [1] = {"Sulfur", "thermal:sulfur", 50000, "west", 32, "meBridge_0"},
+    [2] = {"Iron Ingot", "minecraft:iron_ingot", 50000, "west", 32, "meBridge_0"},
+    [3] = {"Copper Ingot", "minecraft:copper_ingot", 50000, "west", 32, "meBridge_0"},
+    [4] = {"Lead Ingot", "thermal:lead_ingot", 50000, "west", 32, "meBridge_0"},
+    [5] = {"Tin Ingot", "thermal:tin_ingot", 50000, "west", 32, "meBridge_0"},
 
     -- Smelting
-    [6] = {"Raw Iron", "minecraft:raw_iron", 2500, "down", 32},
-    [7] = {"Raw Copper", "minecraft:raw_copper", 2500, "down", 32},
-    [8] = {"Raw Lead", "thermal:raw_lead", 2500, "down", 32},
-    [9] = {"Raw Tin", "thermal:raw_tin", 2500, "down", 32},
-    [10] = {"Raw Silver", "thermal:raw_silver", 2500, "down", 32},
-    [11] = {"Raw Gold", "minecraft:raw_gold", 2500, "down", 32},
-    [12] = {"Raw Uranium", "mekanism:raw_uranium", 2500, "down", 32},
-    [13] = {"Raw Iesnium", "occultism:raw_iesnium", 2500, "down", 32},
-    [14] = {"Raw Zinc", "create:raw_zinc", 2500, "down", 32},
-    [15] = {"Raw Nickel", "thermal:raw_nickel", 2500, "down", 32}
+    [6] = {"Raw Iron", "minecraft:raw_iron", 2500, "down", 32, "meBridge_0"},
+    [7] = {"Raw Copper", "minecraft:raw_copper", 2500, "down", 32, "meBridge_0"},
+    [8] = {"Raw Lead", "thermal:raw_lead", 2500, "down", 32, "meBridge_0"},
+    [9] = {"Raw Tin", "thermal:raw_tin", 2500, "down", 32, "meBridge_0"},
+    [10] = {"Raw Silver", "thermal:raw_silver", 2500, "down", 32, "meBridge_0"},
+    [11] = {"Raw Gold", "minecraft:raw_gold", 2500, "down", 32, "meBridge_0"},
+    [12] = {"Raw Uranium", "mekanism:raw_uranium", 2500, "down", 32, "meBridge_0"},
+    [13] = {"Raw Iesnium", "occultism:raw_iesnium", 2500, "down", 32, "meBridge_0"},
+    [14] = {"Raw Zinc", "create:raw_zinc", 2500, "down", 32, "meBridge_0"},
+    [15] = {"Raw Nickel", "thermal:raw_nickel", 2500, "down", 32, "meBridge_0"},
     
-    -- Enriching
-    -- [16] = {},
-    -- [17] = {},
-    -- [18] = {},
-    -- [19] = {},
+    -- Coal Enriching
+    [16] = {"Iron Ingot", "minecraft:iron_ingot", 2500, "east", 32, "meBridge_0"},
+    
+    -- Redstone Enriching
+    [17] = {"Iron Ingot", "minecraft:iron_ingot", 2500, "west", 32, "meBridge_1"},
+
+    -- Diamond Enriching
+    [18] = {"Infused Alloy", "mekanism:alloy_infused", 2500, "down", 32, "meBridge_1"},
+
+    -- Obsidian Enriching
+    [19] = {"Infused Alloy", "mekanism:alloy_reinforced", 2500, "east", 32, "meBridge_1"},
     -- [20] = {},
     -- [21] = {},
     -- [22] = {},
@@ -124,6 +132,9 @@ function listItems()
         threshold = item[3]
         exportDirection = item[4]
         exportQuantity = item[5]
+        meBridgeName = item[6]
+
+        meBridge = peripheral.find(meBridgeName)
 
         -- Print the item's name to the monitor
         centerText(userFacingName, row, colors.black, colors.white, "west", false)
@@ -163,13 +174,13 @@ function listItems()
 
                 if exportError then
                     -- Add flag to monitor output indicating we attempted to export the item, but failed
-                    print("Error exporting " .. userFacingName .. ": " .. exportError)
-                    centerText("(Exp " .. directionSymbol .. ") [" .. size .. "/" .. threshold .. "] !F2E!", row, colors.black, colors.red, "right", true)
+                    print("Error exporting " .. userFacingName .. " out of ME Bridge " .. meBridgeName .. "in direction " .. exportDirection .. ": " .. exportError)
+                    centerText("(" .. meBridgeName .. " export " .. directionSymbol .. ") [" .. size .. "/" .. threshold .. "] !F2E!", row, colors.black, colors.red, "right", true)
                 else
                     -- Indicate on monitor that the item is being exported.
-                    centerText("(Exp " .. directionSymbol .. ") [" .. size .. "/" .. threshold .. "]", row, colors.black, colors.yellow, "right", true)
+                    centerText("(" .. meBridgeName .. " export " .. directionSymbol .. ") [" .. size .. "/" .. threshold .. "]", row, colors.black, colors.yellow, "right", true)
                     -- Also print to console that the item has been exported.
-                    print("Successfully exported " .. exported .. " of " .. userFacingName)
+                    print("Successfully exported " .. exported .. " of " .. userFacingName .. " out of ME Bridge " .. meBridgeName .. " in direction " .. exportDirection .. ".")
                 end
             else
                 -- Indicate on monitor the item's current quantity
@@ -236,17 +247,26 @@ end
 
 prepareMonitor()
 
--- Connect to ME bridge next
-me = peripheral.find("meBridge")
--- If we can't find an ME bridge, print an error to the monitor.
-if not me then
-    centerText("No ME Bridge or ME network found!", 3, colors.black, colors.red, "head", true)
-    centerText("Please connect an ME network to the computer", 4, colors.black, colors.red, "head", true)
-    centerText("through an ME bridge and try again.", 5, colors.black, colors.red, "head", true)
+-- Get a list of unique ME bridges
+meBridges = {}
+for i, item in ipairs(exportItems) do
+    meBridgeName = item[6]
+    if not meBridges[meBridgeName] then
+        meBridges[meBridgeName] = true
+    end
+end
 
-    -- Print error message to console as well
-    print("No ME Bridge or ME network found! Please connect an ME network to the computer through an ME bridge and try again.")
-    return
+-- Confirm we have connectivity to all of them
+for meBridgeName, _ in pairs(meBridges) do
+    if not peripheral.find(meBridgeName) then
+        centerText("ME Bridge not found: " .. meBridgeName, 3, colors.black, colors.red, "head", true)
+        centerText("Please connect the ME bridge to the computer", 4, colors.black, colors.red, "head", true)
+        centerText("and try again.", 5, colors.black, colors.red, "head", true)
+
+        -- Print error message to console as well
+        print("ME Bridge not found: " .. meBridgeName .. ". Please connect the ME bridge to the computer and try again.")
+        return
+    end
 end
 
 while true do
