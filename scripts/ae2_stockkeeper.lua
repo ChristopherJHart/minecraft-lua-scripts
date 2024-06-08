@@ -134,7 +134,7 @@ function listItems()
         exportQuantity = item[5]
         meBridgeName = item[6]
 
-        meBridge = peripheral.find(meBridgeName)
+        meBridge = peripheral.wrap(meBridgeName)
 
         -- Print the item's name to the monitor
         centerText(userFacingName, row, colors.black, colors.white, "west", false)
@@ -261,13 +261,19 @@ end
 
 -- Confirm we have connectivity to all of them
 for meBridgeName, _ in pairs(meBridges) do
-    if not peripheral.find(meBridgeName) then
+    if not peripheral.isPresent(meBridgeName) then
         centerText("ME Bridge not found: " .. meBridgeName, 3, colors.black, colors.red, "head", true)
         centerText("Please connect the ME bridge to the computer", 4, colors.black, colors.red, "head", true)
         centerText("and try again.", 5, colors.black, colors.red, "head", true)
 
         -- Print error message to console as well
         print("ME Bridge not found: " .. meBridgeName .. ". Please connect the ME bridge to the computer and try again.")
+        -- Print out all devices found on network for troubleshooting purposes
+        print()
+        print("Devices found on network:")
+        for _, device in pairs(peripheral.getNames()) do
+            print("- " .. device)
+        end
         return
     end
 end
