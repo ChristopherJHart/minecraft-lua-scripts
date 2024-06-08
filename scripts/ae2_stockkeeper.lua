@@ -43,7 +43,7 @@ exportItems = {
     [18] = {"Infused Alloy", "mekanism:alloy_infused", 2500, "down", 32, "meBridge_4"},
 
     -- Obsidian Enriching
-    [19] = {"Infused Alloy", "mekanism:alloy_reinforced", 2500, "east", 32, "meBridge_4"},
+    [19] = {"Reinforced Alloy", "mekanism:alloy_reinforced", 2500, "east", 32, "meBridge_4"},
     -- [20] = {},
     -- [21] = {},
     -- [22] = {},
